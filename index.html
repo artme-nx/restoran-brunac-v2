@@ -627,11 +627,7 @@ footer{background:var(--bg-parchment);padding:110px 0 40px;border-top:1px solid 
   document.body.classList.add('reveal-ready');
 
   /* ---- Lenis smooth scroll ---- */
-  var lenis = new Lenis({
-    duration: 1.15,
-    easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-    smoothWheel: true
-  });
+  var lenis = new Lenis({lerp:0.2, wheelMultiplier:1, smoothWheel:true, syncTouch:false});
 
   gsap.registerPlugin(ScrollTrigger);
   lenis.on('scroll', ScrollTrigger.update);
